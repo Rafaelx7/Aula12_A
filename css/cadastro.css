@@ -1,0 +1,205 @@
+* {
+    font-family: 'Oswald', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    margin: 0px;
+    display: grid;
+    grid-template-rows: 120px 46px 1fr 60px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "cabecalho"
+        "menu"
+        "principal"
+        "rodape";
+}
+
+.cabecalho {
+    grid-area: cabecalho;
+    height: 120px;
+    background-color: green;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    z-index: 1;
+    box-shadow: 0px 4px 9px -2px rgba(0,0,0,0.75);
+}
+.menu{
+    grid-area: menu;
+    background-color: black;
+    height: 46px;
+}
+
+.principal {
+    grid-area: principal;
+    height: calc(100vh - 226px);
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+.cadastro{
+   color: green;
+   position: relative;
+   top: 20%;
+   left: 30%;
+   width: 50%;
+
+}
+.rodape {
+    grid-area: rodape;
+    height: 60px;
+    background-color: green;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 1px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 4px 4px 8px black, 0 0 50px darkorange, 0 0 10px orange;
+}
+form{
+    width:70%;
+    position: relative;
+    top: 5%;
+    left: 30%;
+
+}
+.formulario{
+    padding: 10px;
+}
+input[type=text],
+input[type=password],
+input[type=email] {
+    width: 50%;
+    padding: 12px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    resize: vertical;
+    color: green;
+    background-color: #ccc;
+}
+
+
+input[type=text]:hover,
+input[type=password]:hover,
+input[type=email]:hover{
+    background-color: rgba(173, 169, 169, 0.829);
+}
+
+input[type=submit]
+ {
+    background-color: #4CAF50;
+    width: 25%;
+    color: white;
+    padding: 12px 20px;
+    margin: 2px 2px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    position: relative;
+    left: -49.8%;
+   
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+h3{
+    width: 10%;
+    position: relative;
+    left: 31%;
+    color: darkgreen;
+    text-shadow: 4px 4px 16px lightgreen, 0 0 20px black, 0 0 5px white;
+
+}
+
+button{
+    background-color: #4CAF50;
+    width: 10%;
+    color: white;
+    padding: 5px 5px;
+    margin: 2px 2px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    position: relative;
+    top: -10px;
+    left: -90%;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a,
+.dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover,
+.dropdown:hover .dropbtn {
+    background-color: #4CAF50;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #4CAF50;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+body {
+    margin: 0;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+@media screen and (max-width: 600px) {
+    ul.topnav li.right,
+    ul.topnav li {
+        float: none;
+    }
+}

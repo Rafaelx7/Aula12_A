@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>IFSP</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" type="text/css" href="./css/cadastro.css">
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="principal"></div>
+    <script type="text/babel">
+        class Menu extends React.Component { render() { return (
+        <div>
+            <div class="cabecalho">
+                <nav class="menu">
+                    <object width="100%" height="260px" data="menu.html"></object>
+                </nav>
+                <div class="topo">
+                    <img src="./imagens/capa.png" />
+                </div>
+            </div>
+        </div>
+        ); } } class Rodape extends React.Component{ render(){ return(
+        <div>
+            <footer class="rodape">
+                <object width="100%" data="rodape.html"></object>
+            </footer>
+        </div>
+        ); } } class Principal extends React.Component { constructor(props) { super(props); this.state = { username: '', email: '', senha: '', }; } mySubmitHandler = (event) => { event.preventDefault(); alert("Seu cadastro foi realizado com sucesso, " + this.state.username);
+        } myChangeHandler = (event) => { let nam = event.target.name; let val = event.target.value; if (nam === "username") { if (Number(val)) { alert("Você não deve digitar um número aqui"); } } this.setState({ [nam]: val }); } render() { let header
+        = ''; let email = ''; if (this.state.username) { header =
+        <p>{this.state.username}</p>; email =
+        <p>{this.state.email}</p>
+        } else { header = ''; } return (
+        <div>
+            <Menu />
+            <div class="principal">
+                <h3>Cadastro</h3>
+                <form onSubmit={this.mySubmitHandler}>
+                    <div class="formulario"><input type="text" name="username" placeholder="Insira seu nome" onChange={this.myChangeHandler} /></div>
+                    <div class="formulario"><input type="email" name="email" placeholder="Insira seu email" onChange={this.myChangeHandler} /></div>
+                    <div class="formulario"><input type="password" name="password" placeholder="Insira sua senha" /></div>
+                    <div class="formulario"><input type="submit" value="Cadastrar" /></div>
+                </form>
+                <div class="cadastro">
+                    {header} {email}
+                </div>
+            </div>
+            <Rodape />
+        </div>
+        ); } } ReactDOM.render(
+        <Principal />, document.getElementById('principal'));
+    </script>
+</body>
+
+</html>

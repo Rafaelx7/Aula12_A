@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>IFSP</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/cadastro.css">
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="principal"></div>
+    <script type="text/babel">
+        class Menu extends React.Component { render() { return (
+        <div>
+            <div class="cabecalho">
+                <nav class="menu">
+                    <object width="100%" height="260px" data="menu.html"></object>
+                </nav>
+                <div class="topo">
+                    <img src="./imagens/capa.png" />
+                </div>
+            </div>
+        </div>
+        ); } } class Rodape extends React.Component{ render(){ return(
+        <div>
+            <footer class="rodape">
+                <object width="100%" data="rodape.html"></object>
+            </footer>
+        </div>
+        ); } } class Principal extends React.Component { constructor(props) { super(props); this.state = { evento: "Festa Junina", eventodois: "Festa da Primavera", show: true, }; } delHeader = () => { this.setState({ show: false }); } componentDidMount() { setTimeout(()
+        => { this.setState({ evento: "Festa da Primavera" }); this.setState({ eventodois: "Festa Junina" }); }, 1000) } chanceEvento = () => { this.setState({ evento: "Festas de Final de Ano" }); this.setState({ eventodois: "Palesta com Guanabara" });
+        } getSnapshotBeforeUpdate(prevProps, prevState) { document.getElementById("div1").innerHTML = prevState.evento + " - " + prevState.eventodois; } render() { let myheader; if (this.state.show) { myheader =
+        <Child />; }; return (
+        <div>
+            <Menu />
+            <div class="principal">
+                <div>
+                    {myheader}
+                    <button type="button" onClick={this.delHeader}>Delete Cabeçalho de Eventos</button>
+                </div>
+                <br /><br />
+                <br /><br />
+                <p>{this.state.evento}</p>
+                <p>{this.state.eventodois}</p>
+                <button type="button" onClick={this.chanceEvento}>Veja outros eventos</button>
+                <br /><br />
+                <div id="div1"></div>
+
+            </div>
+            <Rodape />
+
+        </div>
+        ); } } class Child extends React.Component { componentWillUnmount() { alert("Cabeçalho de Eventos deletado"); } render() { return (
+        <h1>Eventos</h1>
+        ); } } ReactDOM.render(
+        <Principal />, document.getElementById('principal'));
+    </script>
+</body>
+
+</html>
